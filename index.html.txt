@@ -1,0 +1,27 @@
+
+import tkinter as tk
+
+# Initialize the main app window
+app = tk.Tk()
+app.title("Add Numbers App")
+app.geometry("300x200")
+
+# Initialize the starting value
+current_sum = tk.IntVar(value=0)
+
+# Function to handle button presses
+def add_to_sum(value):
+    current_sum.set(current_sum.get() + value)
+
+# Display the current sum
+sum_label = tk.Label(app, textvariable=current_sum, font=("Arial", 24))
+sum_label.pack(pady=20)
+
+# Create buttons for numbers 1 to 4
+for i in range(1, 5):
+    button = tk.Button(app, text=f"Add {i}", font=("Arial", 14),
+                       command=lambda x=i: add_to_sum(x))
+    button.pack(pady=5)
+
+# Run the app
+app.mainloop()
